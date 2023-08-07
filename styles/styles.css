@@ -94,12 +94,21 @@ body {
 }
 .main__aside__left {
   width: 20%;
-  height: 100vh;
+  height: auto;
   float: left;
   background: #1F2833;
   margin-right: 1%;
   padding: 1%;
   border-radius: 40px;
+}
+
+.main__aside__left h2 {
+  color: #66FCF1;
+  text-align: center;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  font-size: 20px;
+ 
 }
 
 .main__section__front {
@@ -112,35 +121,65 @@ body {
 
 /* Aside */
 
+#filters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .filter-container {
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  border: 2px solid #45A29E;
+  margin-bottom: 30px;
+  border-radius: 10px;
   overflow: hidden;
   width: 100%;
+  text-align: center;
 }
 
 .toggle-button {
-  background-color: #f0f0f0;
+  background-color: black;
   cursor: pointer;
   padding: 10px;
   width: 100%;
   border: none;
-  text-align: left;
+  color: #66FCF1;
   outline: none;
   font-size: 15px;
   width: 100%;
 }
 
 .filter-content {
-  padding: 0 10px;
+  padding: 20px 20px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
+  transition: max-height 0.2s ease-out;
+  color: #66FCF1;
+  padding: 0 20px;
 }
 
-.color {
-  width: 100%;
+.filter-container.active .filter-content {
+  max-height: 200px;
+  overflow: auto;
+  padding: 20px;
+}
+
+.filterBtn {
+  background-color: #45A29E;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ 
+}
+
+.filterBtn:hover {
+  color: black;
+  background-color: #66FCF1;
+  transition: all 0.3s ;
+  border: 2px solid white;
+  font-weight: 600;
 }
 
 /* main__category__sort */
@@ -227,7 +266,7 @@ body {
 .product__article:hover {
   border: 5px solid white;
   background-color:#45A29E;
-  transition: all 0.5s;
+  transition: all 0.2s;
 }
 
 .product__tile {
@@ -292,6 +331,14 @@ body {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+.product__tile button:hover {
+  background-color: #66FCF1;
+  border: 3px solid white;
+  color: black;
+  font-weight: 600;
+  transition: all 1s;
 }
 
 /* Load more Button */
