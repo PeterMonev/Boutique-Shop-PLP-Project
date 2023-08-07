@@ -304,7 +304,7 @@ body {
 .loadMore__btn {
   width: 20%;
   text-align: center;
-  margin: 10px;
+  margin: 2%;
   padding: 10px 20px;
   color: white;
   border-radius: 40px;
@@ -319,6 +319,33 @@ body {
   border: 2px solid white;
   transition: all 0.7s;
 }
+
+/* Footer */
+
+.footer {
+  background-color: black;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  color:#45A29E;
+  margin: 40px;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color:#66FCF1;
+  transition: all 0.3s;
+}
+
 
 
 
