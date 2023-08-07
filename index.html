@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
-
+   
+    <script src="https://kit.fontawesome.com/41784338c0.js" crossorigin="anonymous"></script>
     <script type="module" src="/script.js"></script>
 
 </head>
@@ -38,13 +39,57 @@
     <main class="main">
 
         <aside class="main__aside__left">
-
+            <form id="filters">
+                <h2>Filters</h2>
+                
+                <div class="filter-container">
+                  <button type="button" class="toggle-button">Color</button>
+                  <div id="color-filter" class="filter-content">
+                    <select id="color" name="color">
+                      <option value="">Please choose an option</option>
+                      <option value="red">Red</option>
+                      <option value="blue">Blue</option>
+                      <option value="yellow">Yellow</option>
+                      <option value="orange">Orange</option>
+                      <option value="black">Black</option>
+                      <option value="green">Green</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="filter-container">
+                    <button type="button" class="toggle-button">Price</button>
+                    <div id="price-filter" class="filter-content">
+                        <span id="price-output">0</span>
+                      <input type="range" id="price" name="price" min="0" max="1000">
+                      <span id="price-output">1000</span>
+                    </div>
+                </div>
+                
+                <button type="submit">Apply filters</button>
+              </form>
         </aside>
 
         <section class="main__section__front">
+          <!-- First Section with Info and Sorting Buttons -->
             <section class="main__category__sort">
-
+          <!--Catergory and Description  -->
+              <article class="article__category">
+                <p>Category:</p>
+                <p>Description:</p>
+              </article>
+          <!-- Sorting Divs -->
+              <article class="article__sorting">
+                <p>Alphabetic and Price sorting</p>
+              <div class="div__sorting__btns">
+                <button>A</button>
+                <button>Z</button>
+                <button><i class="fa-solid fa-arrow-up"></i></button>
+                <button><i class="fa-solid fa-arrow-up fa-rotate-180"></i></button>
+              </div>
+              </article> 
             </section>
+
             <section class="main__products">
 
             </section>
