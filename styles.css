@@ -85,6 +85,7 @@ body {
 
 /* MAIN */
 
+
 /* Main sections */
 
 .main{
@@ -103,7 +104,7 @@ body {
 
 .main__section__front {
   width: 79%;
-  height: 100vh;
+  height: auto;
   background: #1F2833;
   float: right;
   border-radius: 40px;
@@ -202,4 +203,122 @@ body {
 .article__sorting button i {
   color: #66FCF1;
 }
+
+/* Main products grid */
+
+.main__products{
+  width: 100%;
+  height: auto;
+  padding: 1% 1%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3%;
+  justify-content: center;
+}
+
+/* Product Article */
+.product__article {
+  width: 30%;
+  border-radius: 40px;
+  padding: 1%;
+}
+
+.product__article:hover {
+  border: 5px solid white;
+  background-color:#45A29E;
+  transition: all 0.5s;
+}
+
+.product__tile {
+  border: 2px solid #45A29E;
+  border-radius: 80px;
+  background-color: black;
+  padding: 20px;
+  text-align: center;
+  color: #66FCF1;
+}
+
+.product__tile h2, p, .price, .stars {
+  margin: 5px;
+}
+
+.product__div__img {
+  width: 80%;
+  height: 50%;
+  margin: auto;
+}
+
+.product__img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.price {
+  display: block;
+  color: green;
+  font-size: 20px;
+}
+
+.discounted-price {
+  display: none;
+}
+
+.discounted {
+  text-decoration: line-through;
+  color: red;
+}
+
+.star {
+  cursor: pointer;
+  font-size: 20px;
+  color: gray;
+}
+
+.star.filled {
+  color: gold;
+}
+
+.product__tile button {
+  background-color: #45A29E;
+  border-radius: 40px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* Load more Button */
+
+.loadMore__div {
+  width: 100%;
+	margin-left: 50%;
+}
+
+.loadMore__btn {
+  width: 20%;
+  text-align: center;
+  margin: 10px;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 40px;
+  background-color: #45A29E;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.loadMore__btn:hover {
+  background-color: #66FCF1;
+  border: 2px solid white;
+  transition: all 0.7s;
+}
+
+
 
