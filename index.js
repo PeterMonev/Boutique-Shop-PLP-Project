@@ -1,15 +1,20 @@
+// Aside section toggle functionality
+
+const toggleBtnFilters = document.querySelector(".accordion__toggleBtn__filterSection");
+const aside = document.querySelector(".accordion__content");
+
+toggleBtnFilters.addEventListener("click", function() {
+  aside.classList.toggle("openAccordionFilterSection");
+  toggleBtnFilters.classList.toggle('rotate'); // Make button rotate 180degrees
+});
+
 // Filter toggle-button functionality
-document.querySelectorAll('.toggle-button').forEach(button => {
+document.querySelectorAll('.toggle__button__filterContent').forEach(button => {
   button.addEventListener('click', () => {
-    const parent = button.parentElement;
-    const content = parent.querySelector('.filter-content');
-    if (content.style.maxHeight) {
-      // if section is open, close it
-      content.style.maxHeight = null;
-    } else {
-      // if section is closed, open it
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
+    const filterContainer = button.parentElement; // Get filter container
+    button.children[0].classList.toggle('rotate') // Make button rotate 180degrees
+    const filterContent = filterContainer.querySelector('.filter-content'); // Get filter content
+    filterContent.classList.toggle('openFilterContent');
   });
 });
 
@@ -19,5 +24,7 @@ const priceSlider = document.getElementById('price');
 const priceOutput = document.getElementById('price-output');
 
 priceSlider.addEventListener('input', () => {
-  priceOutput.textContent = priceSlider.value;
+  priceOutput.textContent = priceSlider.value; // Set current value at slider
 });
+
+
