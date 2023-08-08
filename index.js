@@ -13,7 +13,7 @@ document.querySelectorAll('.toggle__button__filterContent').forEach(button => {
   button.addEventListener('click', () => {
     const filterContainer = button.parentElement; // Get filter container
     button.children[0].classList.toggle('rotate') // Make button rotate 180degrees
-    const filterContent = filterContainer.querySelector('.filter-content'); // Get filter content
+    const filterContent = filterContainer.querySelector('.filter__content'); // Get filter content
     filterContent.classList.toggle('openFilterContent');
   });
 });

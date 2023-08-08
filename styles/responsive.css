@@ -79,7 +79,7 @@
     gap: 10px;
   }
  
-  .filter-container {
+  .filter__container {
     width: 80%;
     margin: 10px auto;
   }
@@ -177,7 +177,7 @@
      width: 90%;
    } 
 
-   .filter-container {
+   .filter__container {
     width: 80%;
    }
 

@@ -22,7 +22,7 @@ button {
 }
 
 body {
-  background-color:aliceblue;
+  background-color: aliceblue;
 }
 
 /* HEADER */
@@ -30,7 +30,11 @@ body {
 .header {
   width: 100vw;
   height: 15vh;
-  background: linear-gradient(180deg, rgba(0,0,0,1) 82%, rgba(102,252,241,1) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 82%,
+    rgba(102, 252, 241, 1) 100%
+  );
   margin: auto;
   position: fixed;
   display: flex;
@@ -55,42 +59,40 @@ body {
 /* Navigation bar */
 
 .nav {
-    width: 80%;
+  width: 80%;
 }
 
 .nav__ul {
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 5%;
-
-  }
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5%;
+}
 
 .nav__button {
-    color: #45A29E;
-    font-size: 22px;
-    letter-spacing: 2px;
+  color: #45a29e;
+  font-size: 22px;
+  letter-spacing: 2px;
 }
 
 .nav__button:hover,
 .div__sorting__btns button:hover {
-    color: #66FCF1;
-    transition: 0.2s ease-out;
-    font-size: 22px;
-    letter-spacing: 2px;
-    border-bottom: 5px double  #45A29E;
-    padding-bottom: 5px;
+  color: #66fcf1;
+  transition: 0.2s ease-out;
+  font-size: 22px;
+  letter-spacing: 2px;
+  border-bottom: 5px double #45a29e;
+  padding-bottom: 5px;
 }
 
 /* MAIN */
 
-.main{
+.main {
   padding: 140px 2% 0 2%;
 }
 
 /* Main sections */
-
 
 .main__sections {
   display: flex;
@@ -101,7 +103,7 @@ body {
   width: 20%;
   height: 60%;
   float: left;
-  background: #1F2833;
+  background: #1f2833;
   margin-right: 1%;
   padding: 1%;
   border-radius: 40px;
@@ -111,7 +113,7 @@ body {
 }
 
 .main__aside__left h2 {
-  color: #66FCF1;
+  color: #66fcf1;
   text-align: center;
   margin: 5px 0 20px 0;
   text-decoration: underline;
@@ -121,7 +123,7 @@ body {
 .main__section__front {
   width: 80%;
   height: auto;
-  background: #1F2833;
+  background: #1f2833;
   float: right;
   border-radius: 40px;
 }
@@ -133,7 +135,6 @@ body {
 .accordion__content {
   max-height: 60px;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
   z-index: 0;
 }
 
@@ -145,11 +146,11 @@ body {
 }
 
 .accordion__toggleBtn__filterSection svg:hover {
-  fill: #66FCF1;
+  fill: #66fcf1;
 }
 
 .openAccordionFilterSection {
-  max-height: 100%; 
+  max-height: 100%;
 }
 
 .rotate {
@@ -165,8 +166,8 @@ body {
   align-items: center;
 }
 
-.filter-container {
-  border: 2px solid #45A29E;
+.filter__container {
+  border: 2px solid #45a29e;
 
   margin-bottom: 30px;
   border-radius: 10px;
@@ -181,7 +182,7 @@ body {
   padding: 10px;
   width: 90%;
   border: none;
-  color: #66FCF1;
+  color: #66fcf1;
   outline: none;
   font-size: 15px;
   width: 100%;
@@ -192,28 +193,49 @@ body {
 }
 
 .toggle__button__filterContent svg:hover {
-  fill: #66FCF1;
+  fill: #66fcf1;
 }
 
-.filter-content {
+.filter__content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
-  color: #66FCF1;
+  color: #66fcf1;
+}
+
+.filter__content input {
+  width: 80%;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.filter__content input:focus {
+  border: 4px solid #66fcf1;
+}
+
+.filter__content select {
+  width: 80%;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.filter__content select:focus {
+  border: 4px solid #66fcf1;
 }
 
 .openFilterContent {
-  max-height: 100%; 
+  max-height: 100%;
 }
 
-.filter-container.active .filter-content {
+.filter__container.active .filter__content {
   max-height: 200px;
   overflow: auto;
   padding: 20px;
 }
 
 .filterBtn {
-  background-color: #45A29E;
+  background-color: #45a29e;
   color: white;
   padding: 10px 15px;
   border-radius: 20px;
@@ -221,13 +243,11 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin: 0 10px 10px 10px;
- 
 }
 
 .filterBtn:hover {
   color: black;
-  background-color: #66FCF1;
-  transition: all 0.3s ;
+  background-color: #66fcf1;
   border: 2px solid white;
   font-weight: 600;
 }
@@ -241,23 +261,22 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   background-color: black;
-  border-radius: 40px 40px 0px 0 ;
-
+  border-radius: 40px 40px 0px 0;
 }
 
 .article__category {
   width: 70%;
   height: 100%;
   border-radius: 40px;
-  text-align:start;
-  color: #66FCF1;
+  text-align: start;
+  color: #66fcf1;
   font-size: 20px;
   padding: 20px 0 0 30px;
 }
 
 .article__category p {
-   margin-left: 0;
-   margin-bottom: 10px;  
+  margin-left: 0;
+  margin-bottom: 10px;
 }
 
 /* Sorting article */
@@ -265,7 +284,7 @@ body {
 .article__sorting {
   width: 30%;
   height: 100%;
-  color:#66FCF1;
+  color: #66fcf1;
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -284,22 +303,22 @@ body {
   text-decoration: underline;
 }
 
-.div__sorting__btns{
+.div__sorting__btns {
   display: flex;
   justify-content: space-around;
 }
 
 .article__sorting button {
-  color: #66FCF1;
+  color: #66fcf1;
 }
 
 .article__sorting button i {
-  color: #66FCF1;
+  color: #66fcf1;
 }
 
 /* Main products grid */
 
-.main__products{
+.main__products {
   width: 100%;
   height: auto;
   padding: 1% 1%;
@@ -320,20 +339,23 @@ body {
 
 .product__article:hover {
   border: 5px solid white;
-  background-color:#45A29E;
+  background-color: #45a29e;
   transition: all 0.2s;
 }
 
 .product__tile {
-  border: 2px solid #45A29E;
+  border: 2px solid #45a29e;
   border-radius: 40px;
   background-color: black;
   padding: 20px;
   text-align: center;
-  color: #66FCF1;
+  color: #66fcf1;
 }
 
-.product__tile h2, p, .price, .stars {
+.product__tile h2,
+p,
+.price,
+.stars {
   margin: 5px;
 }
 
@@ -374,7 +396,7 @@ body {
 }
 
 .product__tile button {
-  background-color: #45A29E;
+  background-color: #45a29e;
   border-radius: 40px;
   border: none;
   color: white;
@@ -388,7 +410,7 @@ body {
 }
 
 .product__tile button:hover {
-  background-color: #66FCF1;
+  background-color: #66fcf1;
   border: 3px solid white;
   color: black;
   font-weight: 600;
@@ -399,7 +421,7 @@ body {
 
 .loadMore__div {
   width: 100%;
-	margin-left: 50%;
+  margin-left: 50%;
 }
 
 .loadMore__btn {
@@ -409,14 +431,14 @@ body {
   padding: 10px 20px;
   color: white;
   border-radius: 40px;
-  background-color: #45A29E;
+  background-color: #45a29e;
   justify-content: center;
   align-items: center;
   font-size: 20px;
 }
 
 .loadMore__btn:hover {
-  background-color: #66FCF1;
+  background-color: #66fcf1;
   border: 2px solid white;
   transition: all 0.7s;
 }
@@ -440,16 +462,12 @@ body {
 }
 
 .footer-links a {
-  color:#45A29E;
+  color: #45a29e;
   margin: 40px;
   text-decoration: none;
 }
 
 .footer-links a:hover {
-  color:#66FCF1;
+  color: #66fcf1;
   transition: all 0.3s;
 }
-
-
-
-
