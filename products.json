@@ -1,0 +1,387 @@
+{
+    "clothes": [
+      {
+        "id": 1,
+        "image_url": "/assets/clothes/redTshirt.jfif",
+        "name": "Red T-Shirt",
+        "color": "red",
+        "description": "A comfortable red t-shirt made from 100% cotton.",
+        "price": 19.99,
+        "discounted_price": 14.99,
+        "rating": 4
+      },
+      {
+        "id": 2,
+        "image_url": "assets/clothes/blackLeatherJacket.jpg",
+        "name": "Black Jacket",
+        "color": "black",
+        "description": "Stylish and comfortable black leather jacket.",
+        "price": 80.99,
+        "discounted_price": null,
+        "rating": 3
+      },
+      {
+        "id": 3,
+        "image_url": "assets/clothes/blueJeans.jpg",
+        "name": "Blue Jeans",
+        "colo": "blue",
+        "description": "Stylish and comfortable blue jeans.",
+        "price": 39.99,
+        "discounted_price": 29.99,
+        "rating": 4
+      },
+      {
+        "id": 4,
+        "image_url": "assets/clothes/blackJeans.jfif",
+        "color": "black",
+        "name": "Blue Jeans",
+        "description": "Stylish and comfortable black jeans.",
+        "price": 39.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 5,
+        "image_url": "assets/clothes/greenTshirt.jfif",
+        "name": "Green T-shirt",
+        "color": "green",
+        "description": "A T-shirt is a garment made from a light, fine cotton fabric.",
+        "price": 19.99,
+        "discounted_price": null,
+        "rating": 2
+      },
+      {
+        "id": 6,
+        "image_url": "assets/clothes/yellowDress.jfif",
+        "name": "Woman Yellow Dress",
+        "color": "yellow",
+        "description": "Perfect for a nigth.",
+        "price": 39.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 7,
+        "image_url": "assets/clothes/orangeJacket.jfif",
+        "name": "Orange Jacket",
+        "color": "orange",
+        "description": "Orange leather jacket perfect for cold days.",
+        "price": 130.99,
+        "discounted_price": 120.00,
+        "rating": 5
+      },
+      {
+        "id": 8,
+        "image_url": "assets/clothes/redHoodie.jpg",
+        "name": "Red Warm Hoodie",
+        "color": "red",
+        "description": "Warm and soft sweatshirt made from cotton.",
+        "price": 39.99,
+        "discounted_price": 34.99,
+        "rating": 3
+      },
+      {
+        "id": 9,
+        "image_url": "assets/clothes/redDress.jpg",
+        "name": "Woman Dress",
+        "color": "red",
+        "description": "Beautiful and stylish summer dress made of pure cotton.",
+        "price": 19.99,
+        "discounted_price": null,
+        "rating": 4
+      },
+      {
+        "id": 10,
+        "image_url": "assets/clothes/blackWomanTshirt.jpg",
+        "color": "black",
+        "name": "Black Woman T-shirt",
+        "description": "A unique lightweight tennis shoe.",
+        "price": 39.99,
+        "discounted_price": null,
+        "rating": 4.6
+      },
+      {
+        "id": 11,
+        "image_url": "assets/clothes/greenPants.jfif",
+        "name": "Green Pant",
+        "color": "green",
+        "description": "Stylish and comfortable green pant.",
+        "price": 79.99,
+        "discounted_price": null,
+        "rating": 2
+      },
+      {
+        "id": 12,
+        "image_url": "assets/clothes/whiteJacket.jfif",
+        "color": "white",
+        "name": "White Jacket",
+        "description": "A unique lightweight white jacket.",
+        "price": 250.99,
+        "discounted_price": 199.99,
+        "rating": 5
+      }
+    
+    ],
+    "shoes": [
+      {
+        "id": 1,
+        "image_url": "/assets/shoes/blueTrainers.jpg",
+        "name": "Blue Trainers",
+        "color": "blue",
+        "description": "Comfortable and durable running shoes.",
+        "price": 49.99,
+        "discounted_price": 39.99,
+        "rating": 2
+      },
+      {
+        "id": 2,
+        "image_url": "/assets/shoes/womanSneakers.jpg",
+        "name": "Woman Sneakers",
+        "color": "blue",
+        "description": "Stylish woman sneakers.",
+        "price": 79.99,
+        "discounted_price": null,
+        "rating": 3
+      },
+      {
+        "id": 3,
+        "image_url": "/assets/shoes/leatherHeels.jpg",
+        "name": "Leather Heels",
+        "color": "black",
+        "description": "Elegant and beautiful leather heels.",
+        "price": 120.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 4,
+        "image_url": "/assets/shoes/merrel.jpg",
+        "name": "Merrel Hikking Boots",
+        "color": "brown",
+        "description": "Featuring a waterproof exterior and a breathable inner lining, these boots keep your feet dry in wet conditions and comfortable on long treks.",
+        "price": 100.99,
+        "discounted_price": 80.99,
+        "rating": 4
+      }
+      ,
+      {
+        "id": 5,
+        "image_url": "/assets/shoes/NikeShoes.jpg",
+        "name": "Nike Trainers",
+        "color": "red",
+        "description": "Perfect running",
+        "price": 199.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 6,
+        "image_url": "/assets/shoes/highHeels.jpg",
+        "name": "Red Heels",
+        "color": "red",
+        "description": "Elegant and beautiful red heels.",
+        "price": 99.99,
+        "discounted_price": 70.99,
+        "rating": 4
+      },
+      {
+        "id": 7,
+        "image_url": "/assets/shoes/greenTrainers.jpg",
+        "name": "GreenTrainers",
+        "color": "green",
+        "description": "Perfect for hikking.",
+        "price": 60.99,
+        "discounted_price": null,
+        "rating": 1
+      },
+      {
+        "id": 8,
+        "image_url": "/assets/shoes/walkingBoots.jpg",
+        "name": "Active Hikking Boots",
+        "color": "brown",
+        "description": "Explore the great outdoors with our rugged hiking boots, designed to handle any terrain.",
+        "price": 250.00,
+        "discounted_price": 245.99,
+        "rating": 5
+      },
+      {
+        "id": 9,
+        "image_url": "/assets/shoes/runningShoes.jpg",
+        "name": "Running Shoes",
+        "color": "blue",
+        "description": "These high-performance running shoes are perfect for those who seek comfort, durability, and style.",
+        "price": 180.49,
+        "discounted_price": 80.99,
+        "rating": 4
+      },
+      {
+        "id": 10,
+        "image_url": "/assets/shoes/winterBoots.jpg",
+        "name": "Winter Boots",
+        "color": "blue",
+        "description": "Stay warm and stylish this winter with our durable winter boots. ",
+        "price": 100.99,
+        "discounted_price": null,
+        "rating": 4
+      }
+
+    
+    ],
+    "bags": [
+      {
+        "id": 1,
+        "image_url": "/assets/bags/blackBack.jfif",
+        "name": "Casual Black Bag",
+        "color": "black",
+        "description": "A stylish leather handbag.",
+        "price": 130.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "image_url": "/assets/bags/browBack.jfif",
+        "color": "brown",
+        "name": "Stylish Brown Backpack",
+        "description": "A durable casual backpack.",
+        "price": 330.99,
+        "discounted_price": 270.00,
+        "rating": 4
+      },
+      {
+        "id": 3,
+        "image_url": "/assets/bags/browBack2.jfif",
+        "color": "brown",
+        "name": "Stylish Bag",
+        "description": "A durable stylish backpack.",
+        "price": 130.99,
+        "discounted_price": null,
+        "rating": 3
+      },
+      {
+        "id": 4,
+        "image_url": "/assets/bags/greenBag.jfif",
+        "color": "green",
+        "name": "Casual Green Backpack",
+        "description": "A durable casual backpack.",
+        "price": 100.99,
+        "discounted_price": null,
+        "rating": 2
+      },
+      {
+        "id": 5,
+        "image_url": "/assets/bags/greenBas2.jfif",
+        "color": "green",
+        "name": "Stylish Green Bag",
+        "description": "Amazing stylish backpack.",
+        "price": 500.99,
+        "discounted_price": 400.00,
+        "rating": 5
+      },
+      {
+        "id": 6,
+        "image_url": "/assets/bags/orange.jfif",
+        "color": "orange",
+        "name": "Orange Bag",
+        "description": "Very good for the money.",
+        "price": 59.99,
+        "discounted_price": null,
+        "rating": 1
+      },
+      {
+        "id": 7,
+        "image_url": "/assets/bags/redBag.jfif",
+        "color": "red",
+        "name": "Stylish Red Backpack",
+        "description": "A durable casual backpack.",
+        "price": 490.99,
+        "discounted_price": null,
+        "rating": 5
+      }
+   
+    ],
+    "watches": [
+      {
+        "id": 1,
+        "image_url": "/assets/watches/watch1.jpg",
+        "name": "Luxury Watch",
+        "color": "chrome",
+        "description": "A luxurious plated watch.",
+        "price": 999.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "image_url": "/assets/watches/watch2.jpg",
+        "name": "Elegance Watch",
+        "color": "white",
+        "description": "A watch with style and elegance features.",
+        "price": 600.99,
+        "discounted_price": 590.00,
+        "rating": 4
+      },
+      {
+        "id": 3,
+        "image_url": "/assets/watches/watch3.jpg",
+        "name": "Sport Watch",
+        "color": "black",
+        "description": "A watch with sport features.",
+        "price": 750.99,
+        "discounted_price": 590.00,
+        "rating": 2
+      },
+      {
+        "id": 4,
+        "image_url": "/assets/watches/watch4.jpg",
+        "name": "Elegance Watch",
+        "color": "black",
+        "description": "A watch with elegance.",
+        "price": 600.99,
+        "discounted_price": null,
+        "rating": 3
+      },
+      {
+        "id": 5,
+        "image_url": "/assets/watches/watch5.jpg",
+        "name": "Woman Watch",
+        "color": "red",
+        "description": "A watch with style and elegance features.",
+        "price": 800.99,
+        "discounted_price": 590.00,
+        "rating": 3
+      },
+      {
+        "id": 6,
+        "image_url": "/assets/watches/watch6.jpg",
+        "name": "Smart Watch",
+        "color":"black",
+        "description": "Very good smart watch.",
+        "price": 300.99,
+        "discounted_price": null,
+        "rating": 2
+      },
+      {
+        "id": 7,
+        "image_url": "/assets/watches/watch7.jpg",
+        "name": "Luxury Watch",
+        "color": "chrome",
+        "description": "A luxurious plated watch.",
+        "price": 850.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 8,
+        "image_url": "/assets/watches/watch2.jpg",
+        "name": "Elegance Watch",
+        "color": "chrome",
+        "description": "A watch with style and elegance features.",
+        "price": 600.99,
+        "discounted_price": 590.00,
+        "rating": 3
+      }
+
+    ]
+  }
+  
