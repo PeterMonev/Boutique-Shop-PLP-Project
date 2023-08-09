@@ -1,8 +1,12 @@
+// Fetching all products
 async function getProducts() {
   try {
     const response = await fetch('products.json');
     const data = await response.json();
-  
+    
+   data.clothes.slice(0,15).map(product =>{
+       showProducts(product) // Initial product rendaring
+   });
     return data;
   } catch (error) {
     console.error('Error:', error);
@@ -10,18 +14,28 @@ async function getProducts() {
 }
 
 const allProducts = await getProducts();
+const loadMoreBtn = document.querySelector('.loadMore__btn'); // Get loadMore button
+const productsButtons = document.querySelectorAll('.nav__button'); // Get header products buttons
 
-const productsButtons = document.querySelectorAll('.nav__button');
 productsButtons.forEach(button => {
-  button.addEventListener('click', function(event){
-    const productChoose = button.textContent.toLowerCase()
+  button.addEventListener('click', function(){
+    const productChoose = button.textContent.toLowerCase() // Getting name of the products want
+    const mainProductSection = document.querySelector('.main__products'); // Getting the main container
 
-    const mainProductSection = document.querySelector('.main__products');
-    mainProductSection.innerHTML = "";
+    mainProductSection.innerHTML = ""; // Clear all currently displayed products
 
-    allProducts[productChoose].map(product => {
+    const allInitialProducts = allProducts[productChoose].slice(0,15) // Getting all initial products maximum 5 rows
+   
+    // Statement for load button
+    if(allInitialProducts.length < 15){
+     loadMoreBtn.style.display = "none";
+    } else {
+      loadMoreBtn.style.display = "inline";
+    }
+ 
+    allInitialProducts.map(product => {
       showProducts(product)
-    })
+    }); // Iterate all products
   
   });
 });
@@ -33,12 +47,12 @@ function creatingStart(rating){
 
   for(let i = 1; i <= 5; i++){
     if(i <= rating){
-      stars += '<span class="star filled">&#9733;</span>'; // Crate gold stars
+      stars += '<span class="star filled">&#9733;</span>'; // Create gold stars
     } else {
       stars += '<span class="star">&#9734;</span>'; // Create empty stars
     }
   }
-  return stars;
+  return stars; // Return current stars
 }
 
 // Discount price functionality
@@ -52,12 +66,12 @@ function creatingDiscountPrice(price,discountedPrice){
     currendPrice = `<span class="price"> $${price}</span>`; // Create span without discount
    }
 
-   return currendPrice;
+   return currendPrice; // Return current prices
 }
 
 function showProducts(products){
- const mainProductSection = document.querySelector('.main__products');
-//  console.log(products.price, products.discounted_price);
+ const mainProductSection = document.querySelector('.main__products'); // Get parent main element
+
  mainProductSection.insertAdjacentHTML('beforeend',`
  <article class="product__article">
  <div class="product__tile">
@@ -73,7 +87,7 @@ function showProducts(products){
    <button>Add to cart</button>
  </div>
 
-</article>`)
+</article>`) // Appending and Iterate all products in articles
 
 }
 

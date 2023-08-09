@@ -119,6 +119,36 @@
         "price": 250.99,
         "discounted_price": 199.99,
         "rating": 5
+      },
+      {
+        "id": 13,
+        "image_url": "assets/clothes/greenTshirt.jfif",
+        "name": "Green T-shirt",
+        "color": "green",
+        "description": "A T-shirt is a garment made from a light, fine cotton fabric.",
+        "price": 19.99,
+        "discounted_price": null,
+        "rating": 2
+      },
+      {
+        "id": 14,
+        "image_url": "assets/clothes/yellowDress.jfif",
+        "name": "Woman Yellow Dress",
+        "color": "yellow",
+        "description": "Perfect for a nigth.",
+        "price": 39.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 15,
+        "image_url": "assets/clothes/orangeJacket.jfif",
+        "name": "Orange Jacket",
+        "color": "orange",
+        "description": "Orange leather jacket perfect for cold days.",
+        "price": 130.99,
+        "discounted_price": 120.00,
+        "rating": 5
       }
     
     ],

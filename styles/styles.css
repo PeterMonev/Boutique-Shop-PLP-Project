@@ -98,6 +98,7 @@ body {
 .main__sections {
   display: flex;
   flex-direction: row;
+  margin-bottom: 40px;
 }
 
 .main__aside__left {
@@ -351,6 +352,7 @@ body {
   padding: 20px;
   text-align: center;
   color: #66fcf1;
+  height: auto;
 }
 
 .product__tile h2,
@@ -420,6 +422,7 @@ p,
 .loadMore__div {
   width: 100%;
   margin-left: 50%;
+
 }
 
 .loadMore__btn {
