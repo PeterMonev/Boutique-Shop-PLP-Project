@@ -26,10 +26,21 @@ productsButtons.forEach(button => {
   });
 });
 
+function creatingStart(rating){
+  let stars = '';
+
+  for(let i = 1; i <= 5; i++){
+    if(i <= rating){
+      stars += '<span class="star filled" data-value="' + i + '">&#9733;</span>';
+    } else {
+      stars += '<span class="star" data-value="' + i + '">&#9734;</span>';
+    }
+  }
+  return stars;
+}
+
 function showProducts(products){
  const mainProductSection = document.querySelector('.main__products');
-console.log(products.image_url);
-
 
  mainProductSection.insertAdjacentHTML('beforeend',`
  <article class="product__article">
@@ -41,11 +52,7 @@ console.log(products.image_url);
    <p>${products.description}</p>
    <span class="price"> $${products.price}<span class="discounted-price"> $80</span></span>
    <div class="stars">
-     <span class="star" data-value="1">&#9734;</span>
-     <span class="star" data-value="2">&#9734;</span>
-     <span class="star" data-value="3">&#9734;</span>
-     <span class="star" data-value="4">&#9734;</span>
-     <span class="star" data-value="5">&#9734;</span>
+     ${creatingStart(products.rating)}
    </div>
    <button>Add to cart</button>
  </div>
