@@ -26,22 +26,38 @@ productsButtons.forEach(button => {
   });
 });
 
+// Gold stars generate functionality
+
 function creatingStart(rating){
-  let stars = '';
+  let stars = ''; 
 
   for(let i = 1; i <= 5; i++){
     if(i <= rating){
-      stars += '<span class="star filled" data-value="' + i + '">&#9733;</span>';
+      stars += '<span class="star filled">&#9733;</span>'; // Crate gold stars
     } else {
-      stars += '<span class="star" data-value="' + i + '">&#9734;</span>';
+      stars += '<span class="star">&#9734;</span>'; // Create empty stars
     }
   }
   return stars;
 }
 
+// Discount price functionality
+
+function creatingDiscountPrice(price,discountedPrice){
+  let currendPrice = '';
+
+   if(discountedPrice !== null){
+    currendPrice = `<span class="price discounted"> $${price}</span><span class="discounted-price"> $${discountedPrice}</span>` // Crate span who have discount price
+   } else {
+    currendPrice = `<span class="price"> $${price}</span>`; // Create span without discount
+   }
+
+   return currendPrice;
+}
+
 function showProducts(products){
  const mainProductSection = document.querySelector('.main__products');
-
+//  console.log(products.price, products.discounted_price);
  mainProductSection.insertAdjacentHTML('beforeend',`
  <article class="product__article">
  <div class="product__tile">
@@ -50,7 +66,7 @@ function showProducts(products){
    </div>
    <h2>${products.name}</h2>
    <p>${products.description}</p>
-   <span class="price"> $${products.price}<span class="discounted-price"> $80</span></span>
+     ${creatingDiscountPrice(products.price, products.discounted_price)}
    <div class="stars">
      ${creatingStart(products.rating)}
    </div>
