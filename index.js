@@ -1,3 +1,60 @@
+async function getProducts() {
+  try {
+    const response = await fetch('products.json');
+    const data = await response.json();
+  
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+const allProducts = await getProducts();
+
+const productsButtons = document.querySelectorAll('.nav__button');
+productsButtons.forEach(button => {
+  button.addEventListener('click', function(event){
+    const productChoose = button.textContent.toLowerCase()
+
+    const mainProductSection = document.querySelector('.main__products');
+    mainProductSection.innerHTML = "";
+
+    allProducts[productChoose].map(product => {
+      showProducts(product)
+    })
+  
+  });
+});
+
+function showProducts(products){
+ const mainProductSection = document.querySelector('.main__products');
+console.log(products.image_url);
+
+
+ mainProductSection.insertAdjacentHTML('beforeend',`
+ <article class="product__article">
+ <div class="product__tile">
+   <div class="product__div__img">
+     <img class="product__img" src="${products.image_url}" alt="product">
+   </div>
+   <h2>${products.name}</h2>
+   <p>${products.description}</p>
+   <span class="price"> $${products.price}<span class="discounted-price"> $80</span></span>
+   <div class="stars">
+     <span class="star" data-value="1">&#9734;</span>
+     <span class="star" data-value="2">&#9734;</span>
+     <span class="star" data-value="3">&#9734;</span>
+     <span class="star" data-value="4">&#9734;</span>
+     <span class="star" data-value="5">&#9734;</span>
+   </div>
+   <button>Add to cart</button>
+ </div>
+
+</article>`)
+
+}
+
+
 // Aside section toggle functionality
 
 const toggleBtnFilters = document.querySelector(".accordion__toggleBtn__filterSection");
