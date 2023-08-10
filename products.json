@@ -149,6 +149,35 @@
         "price": 130.99,
         "discounted_price": 120.00,
         "rating": 5
+      }, {
+        "id": 16,
+        "image_url": "/assets/clothes/redTshirt.jfif",
+        "name": "Red T-Shirt",
+        "color": "red",
+        "description": "A comfortable red t-shirt made from 100% cotton.",
+        "price": 19.99,
+        "discounted_price": 14.99,
+        "rating": 4
+      },
+      {
+        "id": 17,
+        "image_url": "assets/clothes/blackLeatherJacket.jpg",
+        "name": "Black Jacket",
+        "color": "black",
+        "description": "Stylish and comfortable black leather jacket.",
+        "price": 80.99,
+        "discounted_price": null,
+        "rating": 3
+      },
+      {
+        "id": 18,
+        "image_url": "assets/clothes/blueJeans.jpg",
+        "name": "Blue Jeans",
+        "colo": "blue",
+        "description": "Stylish and comfortable blue jeans.",
+        "price": 39.99,
+        "discounted_price": 29.99,
+        "rating": 4
       }
     
     ],

@@ -3,45 +3,70 @@ async function getProducts() {
   try {
     const response = await fetch('products.json');
     const data = await response.json();
-    
-   data.clothes.slice(0,15).map(product =>{
-       showProducts(product) // Initial product rendaring
-   });
+   
+    dataMapping(data, 'clothes'); // Initial rendaring
+  
     return data;
   } catch (error) {
     console.error('Error:', error);
   }
 }
 
-const allProducts = await getProducts();
-const loadMoreBtn = document.querySelector('.loadMore__btn'); // Get loadMore button
-const productsButtons = document.querySelectorAll('.nav__button'); // Get header products buttons
+const allProducts = await getProducts(); // Getting products from fetch in list
+const productsButtons = document.querySelectorAll('.nav__button'); // Getting header products buttons
 
+const currStateProducts = []; // Current state of products
+let currChooseProducts = 'clothes'; // Current Choosen product
+
+
+// Mapping Data function
+function dataMapping(allProducts, choosenProducts, isHaveLoadMore){
+
+  const loadMoreBtn = document.querySelector('.loadMore__btn');// Get load more button
+
+      // Statement for load button
+      if(allProducts[choosenProducts].length < 15){
+        loadMoreBtn.style.display = "none"; // Hide load more button there isn't enough products
+       } else {
+         loadMoreBtn.style.display = "inline"; // Show load more button when there are enough products
+         loadMoreBtn.addEventListener('click', loadMore); // Call loadMore fucntion
+       }
+
+  if(!isHaveLoadMore){
+    allProducts[choosenProducts].slice(0,15).map(product => {
+    showProducts(product) // Iterate all initial products maximum 5 rows
+    });
+
+  } else {
+    allProducts[choosenProducts].map(product => {
+      showProducts(product) // Iterate all products
+    });
+  }
+   
+}
+
+// // Load more button functionality
+function loadMore(){
+  const remainingProducts =  allProducts[currChooseProducts].slice(15); // Get remaining products
+  remainingProducts.map(product => showProducts(product)); // Iterate remaining products
+  document.querySelector('.loadMore__btn').style.display = "none"; // Hide load more button
+}
+
+
+// Products Buttons functionality
 productsButtons.forEach(button => {
   button.addEventListener('click', function(){
-    const productChoose = button.textContent.toLowerCase() // Getting name of the products want
+    currChooseProducts = button.textContent.toLowerCase() // Getting name of the products want
     const mainProductSection = document.querySelector('.main__products'); // Getting the main container
 
     mainProductSection.innerHTML = ""; // Clear all currently displayed products
-
-    const allInitialProducts = allProducts[productChoose].slice(0,15) // Getting all initial products maximum 5 rows
    
-    // Statement for load button
-    if(allInitialProducts.length < 15){
-     loadMoreBtn.style.display = "none";
-    } else {
-      loadMoreBtn.style.display = "inline";
-    }
- 
-    allInitialProducts.map(product => {
-      showProducts(product)
-    }); // Iterate all products
-  
+    dataMapping(allProducts, currChooseProducts) // Iterate all products
   });
 });
 
-// Gold stars generate functionality
 
+// Gold stars generate functionality
 function creatingStart(rating){
   let stars = ''; 
 
@@ -56,7 +81,6 @@ function creatingStart(rating){
 }
 
 // Discount price functionality
-
 function creatingDiscountPrice(price,discountedPrice){
   let currendPrice = '';
 
@@ -69,8 +93,9 @@ function creatingDiscountPrice(price,discountedPrice){
    return currendPrice; // Return current prices
 }
 
+// Generate product articles view
 function showProducts(products){
- const mainProductSection = document.querySelector('.main__products'); // Get parent main element
+ const mainProductSection = document.querySelector('.main__products'); // Get main element
 
  mainProductSection.insertAdjacentHTML('beforeend',`
  <article class="product__article">
@@ -90,7 +115,6 @@ function showProducts(products){
 </article>`) // Appending and Iterate all products in articles
 
 }
-
 
 // Aside section toggle functionality
 
