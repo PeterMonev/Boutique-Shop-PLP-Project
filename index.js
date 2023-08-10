@@ -14,16 +14,21 @@ async function getProducts() {
 
 const allProducts = await getProducts(); // Getting products from fetch in list
 const productsButtons = document.querySelectorAll('.nav__button'); // Getting header products buttons
-
-const currStateProducts = []; // Current state of products
 let currChooseProducts = 'clothes'; // Current Choosen product
 
+// Producucts State function
+function productsState(products){
+  const currStateProducts = []; // Current state of products
+
+  currStateProducts.push(products); // Pushing selected products
+  return currStateProducts;
+}
 
 // Mapping Data function
-function dataMapping(allProducts, choosenProducts, isHaveLoadMore){
-
+function dataMapping(allProducts, choosenProducts){
+  const slicedProducts = allProducts[choosenProducts].slice(0,15)
   const loadMoreBtn = document.querySelector('.loadMore__btn');// Get load more button
-
+  
       // Statement for load button
       if(allProducts[choosenProducts].length < 15){
         loadMoreBtn.style.display = "none"; // Hide load more button there isn't enough products
@@ -32,26 +37,13 @@ function dataMapping(allProducts, choosenProducts, isHaveLoadMore){
          loadMoreBtn.addEventListener('click', loadMore); // Call loadMore fucntion
        }
 
-  if(!isHaveLoadMore){
-    allProducts[choosenProducts].slice(0,15).map(product => {
+    slicedProducts.map(product => {
     showProducts(product) // Iterate all initial products maximum 5 rows
     });
 
-  } else {
-    allProducts[choosenProducts].map(product => {
-      showProducts(product) // Iterate all products
-    });
-  }
-   
-}
+    productsState(slicedProducts)
 
-// // Load more button functionality
-function loadMore(){
-  const remainingProducts =  allProducts[currChooseProducts].slice(15); // Get remaining products
-  remainingProducts.map(product => showProducts(product)); // Iterate remaining products
-  document.querySelector('.loadMore__btn').style.display = "none"; // Hide load more button
 }
-
 
 // Products Buttons functionality
 productsButtons.forEach(button => {
@@ -114,7 +106,19 @@ function showProducts(products){
 
 </article>`) // Appending and Iterate all products in articles
 
+};
+
+// // Load more button functionality
+function loadMore(){
+  const remainingProducts =  allProducts[currChooseProducts].slice(15); // Get remaining products
+
+  productsState(allProducts[currChooseProducts]); // Call state function with all choosen products
+
+  remainingProducts.map(product => showProducts(product)); // Iterate remaining products
+  document.querySelector('.loadMore__btn').style.display = "none"; // Hide load more button
 }
+
+
 
 // Aside section toggle functionality
 
