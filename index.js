@@ -12,50 +12,68 @@ async function getProducts() {
   }
 }
 
-const allProducts = await getProducts(); // Getting products from fetch in list
-const productsButtons = document.querySelectorAll('.nav__button'); // Getting header products buttons
+let productsState = []; // State products
 let currChooseProducts = 'clothes'; // Current Choosen product
+const loadMoreBtn = document.querySelector('.loadMore__btn');// Get load more button
+const mainProductSection = document.querySelector('.main__products'); // Getting the main container
 
-// Producucts State function
-function productsState(products){
-  const currStateProducts = []; // Current state of products
+const allProducts = await getProducts(); // Getting products from fetch in list
 
-  currStateProducts.push(products); // Pushing selected products
-  return currStateProducts;
-}
+let isLoad = false;
 
 // Mapping Data function
-function dataMapping(allProducts, choosenProducts){
-  const slicedProducts = allProducts[choosenProducts].slice(0,15)
-  const loadMoreBtn = document.querySelector('.loadMore__btn');// Get load more button
-  
-      // Statement for load button
-      if(allProducts[choosenProducts].length < 15){
-        loadMoreBtn.style.display = "none"; // Hide load more button there isn't enough products
-       } else {
-         loadMoreBtn.style.display = "inline"; // Show load more button when there are enough products
-         loadMoreBtn.addEventListener('click', loadMore); // Call loadMore fucntion
-       }
+function dataMapping(products, choosenProducts){
+   const slicedProducts = products[choosenProducts].slice(0,15); // Getting only 5 rows of product when initialize
+   productsState = []; // Clear products state
 
-    slicedProducts.map(product => {
-    showProducts(product) // Iterate all initial products maximum 5 rows
-    });
+    // Statement for load button
+    if(slicedProducts < 15){
+      loadMoreBtn.style.display = "none"; // Hide load more button there isn't enough products
+     } else {
+       loadMoreBtn.style.display = "inline"; // Show load more button when there are enough products
+     }
 
-    productsState(slicedProducts)
-
+     slicedProducts.map(product => {
+      showProducts(product) // Iterate all initial products maximum 5 rows
+      });
+    
+    productsState.push(slicedProducts); // Gets the current displayed product
 }
 
 // Products Buttons functionality
+const productsButtons = document.querySelectorAll('.nav__button'); // Getting header products buttons
 productsButtons.forEach(button => {
   button.addEventListener('click', function(){
     currChooseProducts = button.textContent.toLowerCase() // Getting name of the products want
-    const mainProductSection = document.querySelector('.main__products'); // Getting the main container
-
     mainProductSection.innerHTML = ""; // Clear all currently displayed products
-   
+    
+  
     dataMapping(allProducts, currChooseProducts) // Iterate all products
   });
 });
+
+// Sorting buttons functionality
+const sortingButtons = document.querySelectorAll('.div__sorting__btns button');
+sortingButtons.forEach(button => {
+  button.addEventListener('click', function(event){ 
+
+
+    mainProductSection.innerHTML = ""; // Clear all currently displayed products
+
+
+    // if(event.target.id === 'sortingA'){
+    //  currProductsState.sort((a, b) => a.name.localeCompare(b.name));
+    // } else if (event.target.id === 'sortingZ'){
+    //  currProductsState.sort((a, b) => b.name.localeCompare(a.name));
+    // }
+
+  
+    // currProductsState.map(product => {
+    //   showProducts(product)
+    // })
+ 
+  })
+})
 
 
 // Gold stars generate functionality
@@ -109,19 +127,22 @@ function showProducts(products){
 };
 
 // // Load more button functionality
+loadMoreBtn.addEventListener('click', loadMore); // Call loadMore fucntio
+
 function loadMore(){
   const remainingProducts =  allProducts[currChooseProducts].slice(15); // Get remaining products
 
-  productsState(allProducts[currChooseProducts]); // Call state function with all choosen products
+  remainingProducts.map(function(product){
+    showProducts(product) // Show remaining products
+    productsState[0].push(product) // Pushing remaining products
+  } ); // Iterate remaining products
 
-  remainingProducts.map(product => showProducts(product)); // Iterate remaining products
   document.querySelector('.loadMore__btn').style.display = "none"; // Hide load more button
 }
 
 
 
 // Aside section toggle functionality
-
 const toggleBtnFilters = document.querySelector(".accordion__toggleBtn__filterSection");
 const aside = document.querySelector(".accordion__content");
 
