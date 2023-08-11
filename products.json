@@ -33,8 +33,8 @@
       {
         "id": 4,
         "image_url": "assets/clothes/blackJeans.jfif",
-        "color": "black",
         "name": "Blue Jeans",
+        "color": "black",
         "description": "Stylish and comfortable black jeans.",
         "price": 39.99,
         "discounted_price": null,
@@ -93,8 +93,8 @@
       {
         "id": 10,
         "image_url": "assets/clothes/blackWomanTshirt.jpg",
-        "color": "black",
         "name": "Black Woman T-shirt",
+        "color": "black",
         "description": "A unique lightweight tennis shoe.",
         "price": 39.99,
         "discounted_price": null,
@@ -113,8 +113,8 @@
       {
         "id": 12,
         "image_url": "assets/clothes/whiteJacket.jfif",
-        "color": "white",
         "name": "White Jacket",
+        "color": "white",
         "description": "A unique lightweight white jacket.",
         "price": 250.99,
         "discounted_price": 199.99,
@@ -147,7 +147,7 @@
         "color": "orange",
         "description": "Orange leather jacket perfect for cold days.",
         "price": 130.99,
-        "discounted_price": 120.00,
+        "discounted_price": 130.00,
         "rating": 5
       }, {
         "id": 16,

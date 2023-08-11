@@ -33,11 +33,12 @@ function dataMapping(products, choosenProducts){
        loadMoreBtn.style.display = "inline"; // Show load more button when there are enough products
      }
 
-     slicedProducts.map(product => {
-      showProducts(product) // Iterate all initial products maximum 5 rows
-      });
+     slicedProducts.map(function(product){
+      showProducts(product) // Show remaining products
+      productsState.push(product) // Pushing remaining products
+    } ); // Iterate remaining products
     
-    productsState.push(slicedProducts); // Gets the current displayed product
+    productsState = slicedProducts; // Set the current displayed product
 }
 
 // Products Buttons functionality
@@ -56,21 +57,40 @@ productsButtons.forEach(button => {
 const sortingButtons = document.querySelectorAll('.div__sorting__btns button');
 sortingButtons.forEach(button => {
   button.addEventListener('click', function(event){ 
-
-
     mainProductSection.innerHTML = ""; // Clear all currently displayed products
 
+    if(event.target.id === 'sortingA'){
+     productsState.sort((a, b) => a.name.localeCompare(b.name)); // Sorting by name A-Z
+    } 
+    
+    if (event.target.id === 'sortingZ'){
+      productsState.sort((a, b) => b.name.localeCompare(a.name)); // Sorting by name Z-A
+    }
 
-    // if(event.target.id === 'sortingA'){
-    //  currProductsState.sort((a, b) => a.name.localeCompare(b.name));
-    // } else if (event.target.id === 'sortingZ'){
-    //  currProductsState.sort((a, b) => b.name.localeCompare(a.name));
-    // }
+    // Sorting by Higher price
+    if (event.target.id === 'sortingHigh'){
+      productsState.sort((a, b) => {
+        const priceA = a.discounted_price !== null ? a.discounted_price : a.price; //Checking "a" for a discount price, if it is null we return price, if is not null take discout price
+        const priceB = b.discounted_price !== null ? b.discounted_price : b.price; //Checking "b" for a discount price, if it is null we return price, if is not null take discout price
+    
+        return priceB - priceA; // Compare B - A
+    });
+    }
+    
+    // Sorting by Lower price
+    if(event.target.id === "sortingLow"){
+      productsState.sort((a,b) => {
+        const priceA = a.discounted_price !== null ? a.discounted_price : a.price; //Checking "a" for a discount price, if it is null we return price, if is not null take discout price
+        const priceB = b.discounted_price !== null ? b.discounted_price : b.price; //Checking "b" for a discount price, if it is null we return price, if is not null take discout price
+
+        return priceA - priceB;  // Compare A - B
+      } )
+    }
 
   
-    // currProductsState.map(product => {
-    //   showProducts(product)
-    // })
+    productsState.map(product => {
+      showProducts(product)
+    });
  
   })
 })
@@ -134,7 +154,7 @@ function loadMore(){
 
   remainingProducts.map(function(product){
     showProducts(product) // Show remaining products
-    productsState[0].push(product) // Pushing remaining products
+    productsState.push(product) // Pushing remaining products
   } ); // Iterate remaining products
 
   document.querySelector('.loadMore__btn').style.display = "none"; // Hide load more button
