@@ -95,12 +95,39 @@ sortingButtons.forEach(button => {
   })
 });
 
+// Filter products functionality
+  //Filter buttons events
+document.querySelector('.filterBtn').addEventListener('click', function(event){
+  event.preventDefault();
+
+  const filteredProducts = filterProducts(allProducts[currChooseProducts]); // Takes all filtered products
+  productsState = filteredProducts; // Save filtered prodcuts in productsState
+
+  mainProductSection.innerHTML = ""; // Clear all currently displayed products
+  filteredProducts.map(product => showProducts(product)); // Iterate all filtered products
+})
+
+// Filter products function
+function filterProducts(products){
+  const nameFilter = document.querySelector('.input__nameFilter').value.toLowerCase(); // Take name input
+  const colorFilter = document.querySelector('.input__color').value; // Take color input
+  const priceFilter = document.querySelector('.input__price').value; // Take price input
+
+  return products.filter(product =>{
+    const isNameMatch = !nameFilter || product.name.toLowerCase().includes(nameFilter); // Checks if there is an name input and filters it
+    const isColorMatch = !colorFilter || product.color === colorFilter;  // Checks if there is an color select and filters it
+    const isPriceMatch = !priceFilter || (product.discountedPrice ? product.discounted_price : product.price) <= priceFilter;  // Checks if there is an price input and filters it
+
+    return isNameMatch && isColorMatch && isPriceMatch; // Return filtered matches
+  })
+}
+
 
 // Generate category and decsription text
 function generateCategoryDescriptionText(products, choosenProducts){
   document.querySelector('.category__h1').textContent = `Category: ${choosenProducts.charAt(0).toUpperCase()}${choosenProducts.slice(1)}`; //Take first index and it does UpperCase
   document.querySelector('.products__length').textContent = products.length; 
-  const descriptionP = document.querySelector('.description__p')
+  const descriptionP = document.querySelector('.description__p');
 
   if(choosenProducts === 'clothes'){
     descriptionP.textContent = 'Description: Dive into our exclusive online clothing collection, where fashion meets comfort.';
