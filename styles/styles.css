@@ -130,6 +130,7 @@ body {
   background: #1f2833;
   float: right;
   border-radius: 40px;
+  min-height: 150px
 }
 
 /* Aside */
@@ -446,6 +447,67 @@ p,
   color: black;
   font-weight: 600;
   transition: all 1s;
+}
+
+/* Main accout section */
+.main__account__section{
+  display: none;
+  width: 100%;
+  height: auto;
+  background-color: #1f2833;
+  border-radius: 40px;
+  
+}
+
+.main__account__section h2 {
+  color: #66fcf1;
+  text-align: center;
+  font-size: 32px;
+  margin: 20px;
+  text-decoration: underline;
+  
+}
+
+.account__products__section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  height: auto;
+  margin: auto;
+}
+
+.account__buttons__div {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ width: 100%;
+ margin: 10px;
+}
+
+.account__buttons__div button
+{
+  color: whitesmoke;
+  background-color: #45a29e;
+  padding: 10px 15px;
+  border-radius: 20px;
+  width: 20%;
+  justify-self: center;
+  margin: auto;
+}
+
+.account__buttons__div button:hover {
+  border: 2px solid white;
+  color:black;
+  background-color: #66fcf1;
+}
+
+.empty__cart {
+  display: none;
+  text-align: center;
+  font-size: 32px;
+  color: #66fcf1;
 }
 
 /* Load more Button */

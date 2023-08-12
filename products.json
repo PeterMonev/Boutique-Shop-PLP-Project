@@ -289,7 +289,7 @@
     "bags": [
       {
         "id": 1,
-        "image_url": "/assets/bags/blackBack.jfif",
+        "image_url": "/assets/bags/blackBag.jfif",
         "name": "Casual Black Bag",
         "color": "black",
         "description": "A stylish leather handbag.",
@@ -299,7 +299,7 @@
       },
       {
         "id": 2,
-        "image_url": "/assets/bags/browBack.jfif",
+        "image_url": "/assets/bags/browBag.jfif",
         "color": "brown",
         "name": "Stylish Brown Backpack",
         "description": "A durable casual backpack.",
@@ -309,7 +309,7 @@
       },
       {
         "id": 3,
-        "image_url": "/assets/bags/browBack2.jfif",
+        "image_url": "/assets/bags/browBag.jfif",
         "color": "brown",
         "name": "Stylish Bag",
         "description": "A durable stylish backpack.",
@@ -329,7 +329,7 @@
       },
       {
         "id": 5,
-        "image_url": "/assets/bags/greenBas2.jfif",
+        "image_url": "/assets/bags/greenBag2.jfif",
         "color": "green",
         "name": "Stylish Green Bag",
         "description": "Amazing stylish backpack.",
@@ -339,7 +339,7 @@
       },
       {
         "id": 6,
-        "image_url": "/assets/bags/orange.jfif",
+        "image_url": "/assets/bags/orangeBag.jfif",
         "color": "orange",
         "name": "Orange Bag",
         "description": "Very good for the money.",

@@ -24,8 +24,7 @@ function dataMapping(products, choosenProducts){
    const slicedProducts = products[choosenProducts].slice(0,15); // Getting only 5 rows of product when initialize
 
    productsState = []; // Clear products state
-
-  generateCategoryDescriptionText(products[choosenProducts], choosenProducts);
+   generateCategoryDescriptionText(products[choosenProducts], choosenProducts);
   
 
     // Statement for load button
@@ -45,12 +44,16 @@ function dataMapping(products, choosenProducts){
 }
 
 // Clear all articles products
-function clearAllArticleProducts(){
-  const mainProductSection = document.querySelector('.main__products');
+function clearAllArticleProducts(mainContainer){
+  let main = mainContainer;
 
-  while (mainProductSection.firstChild) {
-  mainProductSection.removeChild(mainProductSection.firstChild);
+  if(main ===  undefined){
+    main = document.querySelector('.main__products');
   }
+
+  while (main.children.length > 1) {
+    main.removeChild(main.lastChild); // Remove all children without first
+}
 }
 
 // Checks products state are empty function
@@ -72,8 +75,12 @@ productsButtons.forEach(button => {
   button.addEventListener('click', function(){
     currChooseProducts = button.textContent.toLowerCase() // Getting name of the products want
     clearAllArticleProducts() // Clear all currently displayed products
-    
     dataMapping(allProducts, currChooseProducts) // Iterate all products
+
+    document.querySelector('.main__section__front').style.display = 'inline';
+    document.querySelector('.main__aside__left').style.display = 'flex';
+    document.querySelector('.loadMore__btn').style.display = 'flex';
+    document.querySelector('.main__account__section').style.display = 'none';
   });
 });
 
@@ -130,7 +137,7 @@ document.querySelector('.filterBtn').addEventListener('click', function(event){
 
   clearAllArticleProducts() // Clear all currently displayed products
   filteredProducts.map(product => showProducts(product)); // Iterate all filtered products
-  // checkForEmptyState(productsState);
+  checkForEmptyState(productsState);
 })
 
 // Filter products function
@@ -195,10 +202,14 @@ function generateDiscountPrice(price,discountedPrice){
 }
 
 // Generate product articles view
-function showProducts(products){
- const mainProductSection = document.querySelector('.main__products'); // Get main element
+function showProducts(products, mainContainer){
+  let main = mainContainer;
+  
+  if(main === undefined){
+    main = document.querySelector('.main__products'); // Get main element
+  }
 
- mainProductSection.insertAdjacentHTML('beforeend',`
+  main.insertAdjacentHTML('beforeend',`
  <article class="product__article">
  <div class="product__tile">
    <div class="product__div__img">
@@ -225,10 +236,10 @@ document.querySelectorAll('.add__button').forEach(button => {
     
     const productDetails = {
       name: product.querySelector('h2').textContent,
-      imageUrl: product.querySelector('.product__img').src,
+      image_url: product.querySelector('.product__img').src,
       description: product.querySelector('p').textContent,
       price: product.querySelector('.price').textContent,
-      discountedPrice: product.querySelector('.discounted-price') ? product.querySelector('.discounted-price').textContent : null,
+      discounted_price: product.querySelector('.discounted-price') ? product.querySelector('.discounted-price').textContent : null,
       rating: product.querySelectorAll('.star.filled').length, // Count the number of filled stars for rating
   };
   addToLocalStorage(productDetails); // Call set localStorage function
@@ -246,12 +257,51 @@ document.querySelectorAll('.add__button').forEach(button => {
   //Get JSON from localStorage fucntion
   function getToLocalStorage(){
     const products = JSON.parse(localStorage.getItem('myaccount')) // Get the existing products from LocalStorage
+    return products
   }
 
   //Clear localStorage fucntiona
   function clearLocalStorage(){
     localStorage.clear();
   }
+
+  // My account fucntion
+  document.querySelector('#account').addEventListener('click', function(){
+
+    document.querySelector('.main__section__front').style.display = 'none';
+    document.querySelector('.main__aside__left').style.display = 'none';
+    document.querySelector('.loadMore__btn').style.display = 'none';
+    document.querySelector('.empty__cart').style.display = 'none';
+    document.querySelector('.main__account__section').style.display = 'block';
+    const mainContainer = document.querySelector('.account__products__section')   
+    clearAllArticleProducts(mainContainer); // Clear container before Initializing
+    const products = getToLocalStorage(); // Get products from
+   
+    if(products === null) {
+     document.querySelector('.empty__cart').style.display = 'block'
+    } else {
+      products.map(product => {
+        showProducts(product, mainContainer)
+      });
+    }
+  });
+   
+  // Clear localStorage button functionality
+  document.querySelector('#clearAllStorage').addEventListener('click', function(){
+    const mainAccountSection = document.querySelector('.account__products__section'); // Take main account products
+    document.querySelector('.empty__cart').style.display = 'block'
+    clearAllArticleProducts(mainAccountSection); // Call claer Container function
+    clearLocalStorage(); // Clear localStorage
+  });
+
+  // Back to the shop button function
+  document.querySelector('#backToShopBtn').addEventListener('click', function(){
+      
+    document.querySelector('.main__section__front').style.display = 'inline';
+    document.querySelector('.main__aside__left').style.display = 'flex';
+    document.querySelector('.loadMore__btn').style.display = 'flex';
+    document.querySelector('.main__account__section').style.display = 'none';
+  })
 
 
 // // Load more button functionality
