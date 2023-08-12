@@ -243,6 +243,15 @@ document.querySelectorAll('.add__button').forEach(button => {
     localStorage.setItem('myaccount', JSON.stringify(products)); // Save the updated products back to LocalStorage
 }
 
+  //Get JSON from localStorage fucntion
+  function getToLocalStorage(){
+    const products = JSON.parse(localStorage.getItem('myaccount')) // Get the existing products from LocalStorage
+  }
+
+  //Clear localStorage fucntiona
+  function clearLocalStorage(){
+    localStorage.clear();
+  }
 
 
 // // Load more button functionality
