@@ -42,14 +42,22 @@ function dataMapping(products, choosenProducts){
     productsState = slicedProducts; // Set the current displayed product
 }
 
+// Clear all articles products
+function clearAllArticleProducts(){
+  const mainProductSection = document.querySelector('.main__products');
+
+  while (mainProductSection.firstChild) {
+  mainProductSection.removeChild(mainProductSection.firstChild);
+  }
+}
+
 // Products Buttons functionality
 const productsButtons = document.querySelectorAll('.nav__button'); // Getting header products buttons
 productsButtons.forEach(button => {
   button.addEventListener('click', function(){
     currChooseProducts = button.textContent.toLowerCase() // Getting name of the products want
-    mainProductSection.innerHTML = ""; // Clear all currently displayed products
+    clearAllArticleProducts() // Clear all currently displayed products
     
-  
     dataMapping(allProducts, currChooseProducts) // Iterate all products
   });
 });
@@ -58,7 +66,7 @@ productsButtons.forEach(button => {
 const sortingButtons = document.querySelectorAll('.div__sorting__btns button');
 sortingButtons.forEach(button => {
   button.addEventListener('click', function(event){ 
-    mainProductSection.innerHTML = ""; // Clear all currently displayed products
+    clearAllArticleProducts() // Clear all currently displayed products
 
     if(event.target.id === 'sortingA'){
      productsState.sort((a, b) => a.name.localeCompare(b.name)); // Sorting by name A-Z
@@ -103,7 +111,7 @@ document.querySelector('.filterBtn').addEventListener('click', function(event){
   const filteredProducts = filterProducts(allProducts[currChooseProducts]); // Takes all filtered products
   productsState = filteredProducts; // Save filtered prodcuts in productsState
 
-  mainProductSection.innerHTML = ""; // Clear all currently displayed products
+  clearAllArticleProducts() // Clear all currently displayed products
   filteredProducts.map(product => showProducts(product)); // Iterate all filtered products
 })
 
