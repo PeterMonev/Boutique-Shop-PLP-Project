@@ -5,7 +5,7 @@ async function getProducts() {
     const data = await response.json();
    
     dataMapping(data, 'clothes'); // Initial rendaring
-  
+   
     return data;
   } catch (error) {
     console.error('Error:', error);
@@ -25,7 +25,7 @@ function dataMapping(products, choosenProducts){
 
    productsState = []; // Clear products state
    generateCategoryDescriptionText(products[choosenProducts], choosenProducts);
-  
+   cartQuantity()
 
     // Statement for load button
     if(slicedProducts < 15){
@@ -59,13 +59,12 @@ function clearAllArticleProducts(mainContainer){
 // Checks products state are empty function
 function checkForEmptyState(products){
   let emptyP = document.querySelector('.empty__p');
-  console.log(emptyP);
-  console.log(products);
-  emptyP.style.display = 'block';
+
   if(products.length === 0){
-    console.log('yes');
-
-
+    emptyP.style.display = 'block';
+    loadMoreBtn.style.display = 'none';
+  } else {
+    emptyP.style.display = 'none';
   }
 }
 
@@ -81,6 +80,7 @@ productsButtons.forEach(button => {
     document.querySelector('.main__aside__left').style.display = 'flex';
     document.querySelector('.loadMore__btn').style.display = 'flex';
     document.querySelector('.main__account__section').style.display = 'none';
+    document.querySelector('.empty__p').style.display = 'none'
   });
 });
 
@@ -202,7 +202,7 @@ function generateDiscountPrice(price,discountedPrice){
 }
 
 // Generate product articles view
-function showProducts(products, mainContainer){
+function showProducts(products, mainContainer, isAdd){
   let main = mainContainer;
   
   if(main === undefined){
@@ -228,6 +228,29 @@ function showProducts(products, mainContainer){
 
 };
 
+// Hide add button in account article
+function addButtonDisplay(isAdd){
+  if(isAdd){
+    document.querySelector('.add__button').style.display = 'none';
+  } else {
+    
+  }
+ 
+}
+
+// Quantity products in cart functionality
+function cartQuantity(){
+  const quantityDiv = document.querySelector('#account div p');
+  const products = JSON.parse(localStorage.getItem('myaccount'));
+
+  if(products === null){
+    quantityDiv.textContent = 0;
+  } else {
+    quantityDiv.textContent = products.length;
+  }
+ 
+}
+
 // Adding products in localStorage to my account functionality
   // Adding event listener
 document.querySelectorAll('.add__button').forEach(button => {
@@ -251,6 +274,7 @@ document.querySelectorAll('.add__button').forEach(button => {
     let products = JSON.parse(localStorage.getItem('myaccount') || "[]");  // Get the existing products from LocalStorage
     products.push(product); // Add the new product
 
+    cartQuantity();
     localStorage.setItem('myaccount', JSON.stringify(products)); // Save the updated products back to LocalStorage
 }
 
@@ -262,6 +286,7 @@ document.querySelectorAll('.add__button').forEach(button => {
 
   //Clear localStorage fucntiona
   function clearLocalStorage(){
+    cartQuantity();
     localStorage.clear();
   }
 
@@ -276,12 +301,13 @@ document.querySelectorAll('.add__button').forEach(button => {
     const mainContainer = document.querySelector('.account__products__section')   
     clearAllArticleProducts(mainContainer); // Clear container before Initializing
     const products = getToLocalStorage(); // Get products from
+
    
     if(products === null) {
      document.querySelector('.empty__cart').style.display = 'block'
     } else {
       products.map(product => {
-        showProducts(product, mainContainer)
+        showProducts(product, mainContainer, true)
       });
     }
   });
