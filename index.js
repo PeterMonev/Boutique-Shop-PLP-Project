@@ -19,12 +19,13 @@ const mainProductSection = document.querySelector('.main__products'); // Getting
 
 const allProducts = await getProducts(); // Getting products from fetch in list
 
-let isLoad = false;
-
 // Mapping Data function
 function dataMapping(products, choosenProducts){
    const slicedProducts = products[choosenProducts].slice(0,15); // Getting only 5 rows of product when initialize
+
    productsState = []; // Clear products state
+
+  generateCategoryDescriptionText(products[choosenProducts], choosenProducts)
 
     // Statement for load button
     if(slicedProducts < 15){
@@ -87,17 +88,34 @@ sortingButtons.forEach(button => {
       } )
     }
 
-  
     productsState.map(product => {
-      showProducts(product)
+      showProducts(product);
     });
  
   })
-})
+});
 
+
+// Generate category and decsription text
+function generateCategoryDescriptionText(products, choosenProducts){
+  document.querySelector('.category__h1').textContent = `Category: ${choosenProducts.charAt(0).toUpperCase()}${choosenProducts.slice(1)}`; //Take first index and it does UpperCase
+  document.querySelector('.products__length').textContent = products.length; 
+  const descriptionP = document.querySelector('.description__p')
+
+  if(choosenProducts === 'clothes'){
+    descriptionP.textContent = 'Description: Dive into our exclusive online clothing collection, where fashion meets comfort.';
+   } else if (choosenProducts === 'shoes') {
+    descriptionP.textContent = 'Explore our exquisite range of footwear, tailored for every occasion and stride. Blending fashion with function, our collection ensures both style and comfort.';
+   } else if (choosenProducts === 'bags'){
+    descriptionP.textContent = 'Discover the perfect blend of style and utility in our curated bag collection. From timeless totes to trendy backpacks, each piece promises quality craftsmanship and unique design.';
+   } else if (choosenProducts === 'watches') {
+    descriptionP.textContent = 'Timeless elegance meets modern design in our curated collection of watches. Perfect for the sophisticated wrist, each piece blends functionality with style.';
+   }
+
+}
 
 // Gold stars generate functionality
-function creatingStart(rating){
+function generateStars(rating){
   let stars = ''; 
 
   for(let i = 1; i <= 5; i++){
@@ -111,7 +129,7 @@ function creatingStart(rating){
 }
 
 // Discount price functionality
-function creatingDiscountPrice(price,discountedPrice){
+function generateDiscountPrice(price,discountedPrice){
   let currendPrice = '';
 
    if(discountedPrice !== null){
@@ -135,9 +153,9 @@ function showProducts(products){
    </div>
    <h2>${products.name}</h2>
    <p>${products.description}</p>
-     ${creatingDiscountPrice(products.price, products.discounted_price)}
+     ${generateDiscountPrice(products.price, products.discounted_price)}
    <div class="stars">
-     ${creatingStart(products.rating)}
+     ${generateStars(products.rating)}
    </div>
    <button>Add to cart</button>
  </div>
@@ -184,7 +202,7 @@ document.querySelectorAll('.toggle__button__filterContent').forEach(button => {
 
 // Price filter slider current value
 const priceSlider = document.getElementById('price');
-const priceOutput = document.getElementById('price-output');
+const priceOutput = document.getElementById('priceValue');
 
 priceSlider.addEventListener('input', () => {
   priceOutput.textContent = priceSlider.value; // Set current value at slider

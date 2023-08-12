@@ -4,6 +4,10 @@
     width: 12%;
   }
 
+  .main__sections {
+    min-height: 140px;
+  }
+
   .main {
     padding-top: 120px;
   }
@@ -115,6 +119,7 @@
     width: 100%;
     margin: auto;
     margin-top: 15px;
+    min-height: 150px;
   }
 
   .article__category {
@@ -225,6 +230,14 @@
 @media all and (max-width: 390px) {
   .main {
     padding-top: 380px;
+  }
+
+  .category__h1 {
+    font-size: 18px;
+  }
+  
+  .description__p {
+    font-size: 14px;
   }
 }
 
