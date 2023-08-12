@@ -25,7 +25,8 @@ function dataMapping(products, choosenProducts){
 
    productsState = []; // Clear products state
 
-  generateCategoryDescriptionText(products[choosenProducts], choosenProducts)
+  generateCategoryDescriptionText(products[choosenProducts], choosenProducts);
+  
 
     // Statement for load button
     if(slicedProducts < 15){
@@ -40,6 +41,7 @@ function dataMapping(products, choosenProducts){
     } ); // Iterate remaining products
     
     productsState = slicedProducts; // Set the current displayed product
+    // checkForEmptyState(productsState)
 }
 
 // Clear all articles products
@@ -48,6 +50,19 @@ function clearAllArticleProducts(){
 
   while (mainProductSection.firstChild) {
   mainProductSection.removeChild(mainProductSection.firstChild);
+  }
+}
+
+// Checks products state are empty function
+function checkForEmptyState(products){
+  let emptyP = document.querySelector('.empty__p');
+  console.log(emptyP);
+  console.log(products);
+  emptyP.style.display = 'block';
+  if(products.length === 0){
+    console.log('yes');
+
+
   }
 }
 
@@ -110,9 +125,12 @@ document.querySelector('.filterBtn').addEventListener('click', function(event){
 
   const filteredProducts = filterProducts(allProducts[currChooseProducts]); // Takes all filtered products
   productsState = filteredProducts; // Save filtered prodcuts in productsState
+  console.log(productsState);
+  
 
   clearAllArticleProducts() // Clear all currently displayed products
   filteredProducts.map(product => showProducts(product)); // Iterate all filtered products
+  // checkForEmptyState(productsState);
 })
 
 // Filter products function
@@ -192,12 +210,40 @@ function showProducts(products){
    <div class="stars">
      ${generateStars(products.rating)}
    </div>
-   <button>Add to cart</button>
+   <button class="add__button">Add to cart</button>
  </div>
 
 </article>`) // Appending and Iterate all products in articles
 
 };
+
+// Adding products in localStorage to my account functionality
+  // Adding event listener
+document.querySelectorAll('.add__button').forEach(button => {
+  button.addEventListener('click', function(){
+    const product = this.parentElement;
+    
+    const productDetails = {
+      name: product.querySelector('h2').textContent,
+      imageUrl: product.querySelector('.product__img').src,
+      description: product.querySelector('p').textContent,
+      price: product.querySelector('.price').textContent,
+      discountedPrice: product.querySelector('.discounted-price') ? product.querySelector('.discounted-price').textContent : null,
+      rating: product.querySelectorAll('.star.filled').length, // Count the number of filled stars for rating
+  };
+  addToLocalStorage(productDetails); // Call set localStorage function
+  })
+});
+
+  //Set JSON in localStorage function
+  function addToLocalStorage(product) {
+    let products = JSON.parse(localStorage.getItem('myaccount') || "[]");  // Get the existing products from LocalStorage
+    products.push(product); // Add the new product
+
+    localStorage.setItem('myaccount', JSON.stringify(products)); // Save the updated products back to LocalStorage
+}
+
+
 
 // // Load more button functionality
 loadMoreBtn.addEventListener('click', loadMore); // Call loadMore fucntio

@@ -355,6 +355,13 @@ body {
   justify-content: center;
 }
 
+.empty__p {
+  color: #66fcf1;
+  text-align: center;
+  font-size: 24px;
+  display: none;
+}
+
 /* Product Article */
 .product__article {
   width: 30%;
