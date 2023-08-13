@@ -386,6 +386,7 @@ body {
   border-radius: 40px;
   padding: 1%;
   margin: 10px 0;
+  height: auto;
 }
 
 .product__article:hover {
@@ -401,7 +402,7 @@ body {
   padding: 20px;
   text-align: center;
   color: #66fcf1;
-  height: auto;
+  min-height: 100%;
 }
 
 .product__tile h2,
@@ -409,6 +410,7 @@ p,
 .price,
 .stars {
   margin: 5px;
+  min-height: 3px;
 }
 
 .product__div__img {

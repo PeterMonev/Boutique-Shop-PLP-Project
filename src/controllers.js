@@ -6,6 +6,9 @@ import { showProducts } from "./views.js";
 let productsState = []; // State products
 let currChooseProducts = 'clothes'; // Current Choosen product
 const loadMoreBtn = document.querySelector('.loadMore__btn');// Get load more button
+const mainSectionContainer = document.querySelector('.main__section__front');
+const mainSectionAside = document.querySelector('.main__aside__left');
+const mainSectionAccount =  document.querySelector('.main__account__section');
 
 const allProducts = await getProducts(); // Getting products from fetch in list
 
@@ -39,9 +42,9 @@ export function initProductsCategory(){
       clearAllArticleProducts() // Clear all currently displayed products
       dataMapping(allProducts, currChooseProducts) // Iterate all products
   
-      document.querySelector('.main__section__front').style.display = 'inline';
-      document.querySelector('.main__aside__left').style.display = 'flex';
-      document.querySelector('.main__account__section').style.display = 'none';
+      mainSectionContainer.style.display = 'inline';
+      mainSectionAside.style.display = 'flex';
+      mainSectionAccount.style.display = 'none';
       document.querySelector('.empty__p').style.display = 'none'
 }
 
@@ -93,14 +96,15 @@ export function productsSorting(event){
     productsState.map(product => {
       showProducts(product);
     });
+    addToCart();
   }
 //Filter buttons events
 export function eventProductsFilter(event){
     event.preventDefault();
- 
+
     let filteredProducts = filterProducts(allProducts[currChooseProducts]); // Takes all filtered products
     productsState = filteredProducts; // Save filtered prodcuts in productsState
-    
+
     clearAllArticleProducts() // Clear all currently displayed products
     filteredProducts.map(product => showProducts(product)); // Iterate all filtered products
     loadMoreBtn.style.display = 'none';
@@ -113,8 +117,9 @@ export function eventProductsFilter(event){
     const nameFilter = document.querySelector('.input__nameFilter').value.toLowerCase(); // Take name input
     const colorFilter = document.querySelector('.input__color').value; // Take color input
     const priceFilter = document.querySelector('.input__price').value; // Take price input
-  
+
     return products.filter(product =>{
+      
       const isNameMatch = !nameFilter || product.name.toLowerCase().includes(nameFilter); // Checks if there is an name input and filters it
       const isColorMatch = !colorFilter || product.color === colorFilter;  // Checks if there is an color select and filters it
       const isPriceMatch = !priceFilter || (product.discountedPrice ? product.discounted_price : product.price) <= priceFilter;  // Checks if there is an price input and filters it
@@ -145,11 +150,11 @@ export function addToCart(){
 
 // My account funtion
 export function myAccount(){
-    document.querySelector('.main__section__front').style.display = 'none';
-    document.querySelector('.main__aside__left').style.display = 'none';
-    document.querySelector('.loadMore__btn').style.display = 'none';
+    mainSectionContainer.style.display = 'none';
+    mainSectionAside.style.display = 'none';
+    loadMoreBtn.style.display = 'none';
+    mainSectionAccount.style.display = 'block';
     document.querySelector('.empty__cart').style.display = 'none';
-    document.querySelector('.main__account__section').style.display = 'block';
   
     const mainContainer = document.querySelector('.account__products__section')   
     clearAllArticleProducts(mainContainer); // Clear container before Initializing
@@ -175,8 +180,8 @@ export function myAccountClearsButton () {
 
 // Back to the shop button function
 export function backToShopPageBtn(){
-    document.querySelector('.main__section__front').style.display = 'inline';
-    document.querySelector('.main__aside__left').style.display = 'flex';
-    document.querySelector('.loadMore__btn').style.display = 'flex';
-    document.querySelector('.main__account__section').style.display = 'none';
+    mainSectionContainer.style.display = 'inline';
+    mainSectionAside.style.display = 'flex';
+    loadMoreBtn.style.display = 'flex';
+    mainSectionAccount.style.display = 'none';
   }

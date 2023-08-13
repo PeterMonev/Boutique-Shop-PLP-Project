@@ -3,6 +3,7 @@ import { generateStars } from "./until.js";
 
 // Generate product articles view
 export function showProducts(products, mainContainer, isAdd){
+ 
   let main = mainContainer;
   
   if(main === undefined){

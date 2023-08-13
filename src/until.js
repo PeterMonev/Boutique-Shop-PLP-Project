@@ -19,7 +19,7 @@ export function generateDiscountPrice(price, discountedPrice) {
   if (discountedPrice !== null) {
     currendPrice = `<span class="price discounted"> $${price}</span><span class="discounted-price"> $${discountedPrice}</span>`; // Crate span who have discount price
   } else {
-    currendPrice = `<span class="price"> $${price}</span>`; // Create span without discount
+    currendPrice = `<span class="price"> $${price}</span><p class="price"></p>`; // Create span without discount
   }
 
   return currendPrice; // Return current prices
