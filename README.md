@@ -33,29 +33,29 @@ This is a web application for a Boutique Shop that specializes in selling and cl
 
 ## Header 
 
-![Header]()
+![Header](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/Header.PNG)
 
 ## Home 
 
-![Home]()
+![Home](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/Home.PNG)
 
-![Home]()
+![Home](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/Home2.PNG)
 
 ## Filter
 
-![Filter]()
+![Filter](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/Filters.PNG)
 
 ## Cart 
 
-![Cart]()
+![Cart](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/Cart.PNG)
 
-![Cart]()
+![Cart](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/Cart2.PNG)
 
 # Responsive Design
 
 ## Header 
 
-![Header]()
+![Header](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/HeaderResponsive.PNG)
 
 ## Home 
 
@@ -63,8 +63,5 @@ This is a web application for a Boutique Shop that specializes in selling and cl
 
 ## Filter
 
-![Filter]()
+![Filter](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/FiltersResponsive.PNG)
 
-## Cart 
-
-![Cart]()

@@ -156,19 +156,22 @@
     flex-direction: column;
     height: auto;
    }
+   .main {
+    padding-top: 270px !important;
+  }
    
    .div__logo__img {
-    width: 30%;
+    width: 15%;
    }
    
    .nav {
     width: 100%;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
    }
 
    .nav__ul {
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
    }
 
    /* Main */
@@ -238,7 +241,7 @@
 
 @media all and (max-width: 390px) {
   .main {
-    padding-top: 380px;
+    padding-top: 250px !important;
   }
 
   .category__h1 {
