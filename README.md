@@ -59,7 +59,9 @@ This is a web application for a Boutique Shop that specializes in selling and cl
 
 ## Home 
 
-![Home]()
+![Home](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/HomeResponsive.PNG)
+
+![Home](https://github.com/PeterMonev/Boutique-Shop-PLP-Project/blob/main/gitscreeshot/HomeResponsive2.PNG)
 
 ## Filter
 
