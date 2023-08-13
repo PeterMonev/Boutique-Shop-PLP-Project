@@ -5,7 +5,7 @@ async function getProducts() {
     const data = await response.json();
    
     dataMapping(data, 'clothes'); // Initial rendaring
-   
+    cartQuantity()
     return data;
   } catch (error) {
     console.error('Error:', error);
@@ -25,11 +25,10 @@ function dataMapping(products, choosenProducts){
 
    productsState = []; // Clear products state
    generateCategoryDescriptionText(products[choosenProducts], choosenProducts);
-   cartQuantity()
 
     // Statement for load button
-    if(slicedProducts < 15){
-      loadMoreBtn.style.display = "none"; // Hide load more button there isn't enough products
+    if(slicedProducts.length < 15){
+      loadMoreBtn.style.display = 'none';  // Hide load more button there isn't enough products
      } else {
        loadMoreBtn.style.display = "inline"; // Show load more button when there are enough products
      }
@@ -37,10 +36,11 @@ function dataMapping(products, choosenProducts){
      slicedProducts.map(function(product){
       showProducts(product) // Show remaining products
       productsState.push(product) // Pushing remaining products
-    } ); // Iterate remaining products
+    }); // Iterate remaining products
     
     productsState = slicedProducts; // Set the current displayed product
-    // checkForEmptyState(productsState)
+    checkForEmptyState(productsState)
+    addToCart();
 }
 
 // Clear all articles products
@@ -78,7 +78,6 @@ productsButtons.forEach(button => {
 
     document.querySelector('.main__section__front').style.display = 'inline';
     document.querySelector('.main__aside__left').style.display = 'flex';
-    document.querySelector('.loadMore__btn').style.display = 'flex';
     document.querySelector('.main__account__section').style.display = 'none';
     document.querySelector('.empty__p').style.display = 'none'
   });
@@ -132,9 +131,7 @@ document.querySelector('.filterBtn').addEventListener('click', function(event){
 
   const filteredProducts = filterProducts(allProducts[currChooseProducts]); // Takes all filtered products
   productsState = filteredProducts; // Save filtered prodcuts in productsState
-  console.log(productsState);
   
-
   clearAllArticleProducts() // Clear all currently displayed products
   filteredProducts.map(product => showProducts(product)); // Iterate all filtered products
   checkForEmptyState(productsState);
@@ -221,7 +218,7 @@ function showProducts(products, mainContainer, isAdd){
    <div class="stars">
      ${generateStars(products.rating)}
    </div>
-   <button class="add__button">Add to cart</button>
+   ${ isAdd ? '' : '<button class="add__button">Add to cart</button>'}
  </div>
 
 </article>`) // Appending and Iterate all products in articles
@@ -239,6 +236,7 @@ function addButtonDisplay(isAdd){
 }
 
 // Quantity products in cart functionality
+
 function cartQuantity(){
   const quantityDiv = document.querySelector('#account div p');
   const products = JSON.parse(localStorage.getItem('myaccount'));
@@ -253,29 +251,33 @@ function cartQuantity(){
 
 // Adding products in localStorage to my account functionality
   // Adding event listener
-document.querySelectorAll('.add__button').forEach(button => {
-  button.addEventListener('click', function(){
-    const product = this.parentElement;
-    
-    const productDetails = {
-      name: product.querySelector('h2').textContent,
-      image_url: product.querySelector('.product__img').src,
-      description: product.querySelector('p').textContent,
-      price: product.querySelector('.price').textContent,
-      discounted_price: product.querySelector('.discounted-price') ? product.querySelector('.discounted-price').textContent : null,
-      rating: product.querySelectorAll('.star.filled').length, // Count the number of filled stars for rating
-  };
-  addToLocalStorage(productDetails); // Call set localStorage function
-  })
-});
+function addToCart(){
+  document.querySelectorAll('.add__button').forEach(button => {
+    button.addEventListener('click', function(){
+ 
+      const product = this.parentElement;
+
+      const productDetails = {
+        name: product.querySelector('h2').textContent,
+        image_url: product.querySelector('.product__img').src,
+        description: product.querySelector('p').textContent,
+        price: product.querySelector('.price').textContent,
+        discounted_price: product.querySelector('.discounted-price') ? product.querySelector('.discounted-price').textContent : null,
+        rating: product.querySelectorAll('.star.filled').length, // Count the number of filled stars for rating
+    };
+    addToLocalStorage(productDetails); // Call set localStorage function
+    })
+  });
+}
+
 
   //Set JSON in localStorage function
   function addToLocalStorage(product) {
     let products = JSON.parse(localStorage.getItem('myaccount') || "[]");  // Get the existing products from LocalStorage
     products.push(product); // Add the new product
 
-    cartQuantity();
     localStorage.setItem('myaccount', JSON.stringify(products)); // Save the updated products back to LocalStorage
+    cartQuantity();
 }
 
   //Get JSON from localStorage fucntion
@@ -286,8 +288,8 @@ document.querySelectorAll('.add__button').forEach(button => {
 
   //Clear localStorage fucntiona
   function clearLocalStorage(){
-    cartQuantity();
     localStorage.clear();
+    cartQuantity();
   }
 
   // My account fucntion
@@ -298,11 +300,11 @@ document.querySelectorAll('.add__button').forEach(button => {
     document.querySelector('.loadMore__btn').style.display = 'none';
     document.querySelector('.empty__cart').style.display = 'none';
     document.querySelector('.main__account__section').style.display = 'block';
+ 
     const mainContainer = document.querySelector('.account__products__section')   
     clearAllArticleProducts(mainContainer); // Clear container before Initializing
     const products = getToLocalStorage(); // Get products from
 
-   
     if(products === null) {
      document.querySelector('.empty__cart').style.display = 'block'
     } else {
@@ -341,10 +343,9 @@ function loadMore(){
     productsState.push(product) // Pushing remaining products
   } ); // Iterate remaining products
 
+  addToCart();
   document.querySelector('.loadMore__btn').style.display = "none"; // Hide load more button
 }
-
-
 
 // Aside section toggle functionality
 const toggleBtnFilters = document.querySelector(".accordion__toggleBtn__filterSection");
