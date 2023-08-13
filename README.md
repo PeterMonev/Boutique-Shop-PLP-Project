@@ -2,8 +2,7 @@
 
 ## :pencil2: About The Project 
 
-This is a web application for a Boutique Shop that specializes in selling and clothes, shoes , bags, watches. The web application is built using the JavaScript, CSS, HTML for data using JSON. The application provides a user-friendly interface for customers to browse through the inventory, buy products and save in their shoping cart, and seeing their account information.
-
+It is a front-end based web application only and is a boutique store that specializes in selling clothes, shoes, bags, watches. The web application is built using JavaScript, CSS, HTML for data using JSON. save to their shopping cart and view their account information. The application provides a user-friendly interface for customers to browse through the inventory, buy products and save in their shoping cart, and seeing their account information.
 
 ## Live-demo
 
