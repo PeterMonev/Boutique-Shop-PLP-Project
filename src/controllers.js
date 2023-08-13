@@ -9,13 +9,15 @@ const loadMoreBtn = document.querySelector('.loadMore__btn');// Get load more bu
 const mainSectionContainer = document.querySelector('.main__section__front');
 const mainSectionAside = document.querySelector('.main__aside__left');
 const mainSectionAccount =  document.querySelector('.main__account__section');
+let allProductsLoadMoreBtn = [];
 
 const allProducts = await getProducts(); // Getting products from fetch in list
 
 // Mapping Data function
 export function dataMapping(products, choosenProducts){
     const slicedProducts = products[choosenProducts].slice(0,15); // Getting only 5 rows of product when initialize
- 
+    let allProductsCopy = products[choosenProducts].slice(); // Take all products copy
+
     productsState = []; // Clear products state
     generateCategoryDescriptionText(products[choosenProducts], choosenProducts);
  
@@ -34,6 +36,10 @@ export function dataMapping(products, choosenProducts){
      productsState = slicedProducts; // Set the current displayed product
      checkForEmptyState(productsState)
      addToCart();
+
+     allProductsLoadMoreBtn =  allProductsCopy;
+     allProductsLoadMoreBtn.splice(0,15); // Splice first 15 products in initiliazing
+
  }
 
 // Products category button function
@@ -41,24 +47,32 @@ export function initProductsCategory(){
     currChooseProducts = this.textContent.toLowerCase() // Getting name of the products want
       clearAllArticleProducts() // Clear all currently displayed products
       dataMapping(allProducts, currChooseProducts) // Iterate all products
-  
+ 
       mainSectionContainer.style.display = 'inline';
       mainSectionAside.style.display = 'flex';
       mainSectionAccount.style.display = 'none';
       document.querySelector('.empty__p').style.display = 'none'
+
+
 }
 
  // Load more button function
 export function loadMore(){
-    const remainingProducts =  allProducts[currChooseProducts].slice(15); // Get remaining products
-  
-    remainingProducts.map(function(product){
+    let allRemainingProducts = allProductsLoadMoreBtn.splice(0,15); // Takes next 15 products 
+    const nextProducts = allRemainingProducts // Get remaining products
+
+    nextProducts.map(function(product){
       showProducts(product) // Show remaining products
       productsState.push(product) // Pushing remaining products
     } ); // Iterate remaining products
   
+
     addToCart();
-    document.querySelector('.loadMore__btn').style.display = "none"; // Hide load more button
+
+    if(allProductsLoadMoreBtn.length === 0 ){
+        document.querySelector('.loadMore__btn').style.display = "none"; // Hide load more button
+    }
+   
 }
 
 // Sorting button function
