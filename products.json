@@ -178,7 +178,186 @@
         "price": 39.99,
         "discounted_price": 29.99,
         "rating": 4
+      },{
+        "id": 19,
+        "image_url": "/assets/clothes/redTshirt.jfif",
+        "name": "Red T-Shirt",
+        "color": "red",
+        "description": "A comfortable red t-shirt made from 100% cotton.",
+        "price": 19.99,
+        "discounted_price": 14.99,
+        "rating": 4
+      },
+      {
+        "id": 20,
+        "image_url": "assets/clothes/blackLeatherJacket.jpg",
+        "name": "Black Jacket",
+        "color": "black",
+        "description": "Stylish and comfortable black leather jacket.",
+        "price": 80.99,
+        "discounted_price": null,
+        "rating": 3
+      },
+      {
+        "id": 21,
+        "image_url": "assets/clothes/blueJeans.jpg",
+        "name": "Blue Jeans",
+        "colo": "blue",
+        "description": "Stylish and comfortable blue jeans.",
+        "price": 39.99,
+        "discounted_price": 29.99,
+        "rating": 4
+      },
+      {
+        "id": 22,
+        "image_url": "assets/clothes/blackJeans.jfif",
+        "name": "Blue Jeans",
+        "color": "black",
+        "description": "Stylish and comfortable black jeans.",
+        "price": 39.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 23,
+        "image_url": "assets/clothes/greenTshirt.jfif",
+        "name": "Green T-shirt",
+        "color": "green",
+        "description": "A T-shirt is a garment made from a light, fine cotton fabric.",
+        "price": 19.99,
+        "discounted_price": null,
+        "rating": 2
+      },
+      {
+        "id": 24,
+        "image_url": "assets/clothes/yellowDress.jfif",
+        "name": "Woman Yellow Dress",
+        "color": "yellow",
+        "description": "Perfect for a nigth.",
+        "price": 39.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 25,
+        "image_url": "assets/clothes/orangeJacket.jfif",
+        "name": "Orange Jacket",
+        "color": "orange",
+        "description": "Orange leather jacket perfect for cold days.",
+        "price": 130.99,
+        "discounted_price": 120.00,
+        "rating": 5
+      },
+      {
+        "id": 26,
+        "image_url": "assets/clothes/redHoodie.jpg",
+        "name": "Red Warm Hoodie",
+        "color": "red",
+        "description": "Warm and soft sweatshirt made from cotton.",
+        "price": 39.99,
+        "discounted_price": 34.99,
+        "rating": 3
+      },
+      {
+        "id": 27,
+        "image_url": "assets/clothes/redDress.jpg",
+        "name": "Woman Dress",
+        "color": "red",
+        "description": "Beautiful and stylish summer dress made of pure cotton.",
+        "price": 19.99,
+        "discounted_price": null,
+        "rating": 4
+      },
+      {
+        "id": 28,
+        "image_url": "assets/clothes/blackWomanTshirt.jpg",
+        "name": "Black Woman T-shirt",
+        "color": "black",
+        "description": "A unique lightweight tennis shoe.",
+        "price": 39.99,
+        "discounted_price": null,
+        "rating": 4.6
+      },
+      {
+        "id": 29,
+        "image_url": "assets/clothes/greenPants.jfif",
+        "name": "Green Pant",
+        "color": "green",
+        "description": "Stylish and comfortable green pant.",
+        "price": 79.99,
+        "discounted_price": null,
+        "rating": 2
+      },
+      {
+        "id": 30,
+        "image_url": "assets/clothes/whiteJacket.jfif",
+        "name": "White Jacket",
+        "color": "white",
+        "description": "A unique lightweight white jacket.",
+        "price": 250.99,
+        "discounted_price": 199.99,
+        "rating": 5
+      },
+      {
+        "id": 31,
+        "image_url": "assets/clothes/greenTshirt.jfif",
+        "name": "Green T-shirt",
+        "color": "green",
+        "description": "A T-shirt is a garment made from a light, fine cotton fabric.",
+        "price": 19.99,
+        "discounted_price": null,
+        "rating": 2
+      },
+      {
+        "id": 32,
+        "image_url": "assets/clothes/yellowDress.jfif",
+        "name": "Woman Yellow Dress",
+        "color": "yellow",
+        "description": "Perfect for a nigth.",
+        "price": 39.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 33,
+        "image_url": "assets/clothes/orangeJacket.jfif",
+        "name": "Orange Jacket",
+        "color": "orange",
+        "description": "Orange leather jacket perfect for cold days.",
+        "price": 130.99,
+        "discounted_price": 130.00,
+        "rating": 5
+      }, {
+        "id": 34,
+        "image_url": "/assets/clothes/redTshirt.jfif",
+        "name": "Red T-Shirt",
+        "color": "red",
+        "description": "A comfortable red t-shirt made from 100% cotton.",
+        "price": 19.99,
+        "discounted_price": 14.99,
+        "rating": 4
+      },
+      {
+        "id": 35,
+        "image_url": "assets/clothes/blackLeatherJacket.jpg",
+        "name": "Black Jacket",
+        "color": "black",
+        "description": "Stylish and comfortable black leather jacket.",
+        "price": 80.99,
+        "discounted_price": null,
+        "rating": 3
+      },
+      {
+        "id": 36,
+        "image_url": "assets/clothes/blueJeans.jpg",
+        "name": "Blue Jeans",
+        "colo": "blue",
+        "description": "Stylish and comfortable blue jeans.",
+        "price": 39.99,
+        "discounted_price": 29.99,
+        "rating": 4
       }
+    
     
     ],
     "shoes": [
@@ -432,6 +611,86 @@
       },
       {
         "id": 8,
+        "image_url": "/assets/watches/watch2.jpg",
+        "name": "Elegance Watch",
+        "color": "chrome",
+        "description": "A watch with style and elegance features.",
+        "price": 600.99,
+        "discounted_price": 590.00,
+        "rating": 3
+      },
+      {
+        "id": 9,
+        "image_url": "/assets/watches/watch1.jpg",
+        "name": "Luxury Watch",
+        "color": "chrome",
+        "description": "A luxurious plated watch.",
+        "price": 999.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 10,
+        "image_url": "/assets/watches/watch2.jpg",
+        "name": "Elegance Watch",
+        "color": "white",
+        "description": "A watch with style and elegance features.",
+        "price": 600.99,
+        "discounted_price": 590.00,
+        "rating": 4
+      },
+      {
+        "id": 11,
+        "image_url": "/assets/watches/watch3.jpg",
+        "name": "Sport Watch",
+        "color": "black",
+        "description": "A watch with sport features.",
+        "price": 750.99,
+        "discounted_price": 590.00,
+        "rating": 2
+      },
+      {
+        "id": 12,
+        "image_url": "/assets/watches/watch4.jpg",
+        "name": "Elegance Watch",
+        "color": "black",
+        "description": "A watch with elegance.",
+        "price": 600.99,
+        "discounted_price": null,
+        "rating": 3
+      },
+      {
+        "id": 13,
+        "image_url": "/assets/watches/watch5.jpg",
+        "name": "Woman Watch",
+        "color": "red",
+        "description": "A watch with style and elegance features.",
+        "price": 800.99,
+        "discounted_price": 590.00,
+        "rating": 3
+      },
+      {
+        "id": 14,
+        "image_url": "/assets/watches/watch6.jpg",
+        "name": "Smart Watch",
+        "color":"black",
+        "description": "Very good smart watch.",
+        "price": 300.99,
+        "discounted_price": null,
+        "rating": 2
+      },
+      {
+        "id": 15,
+        "image_url": "/assets/watches/watch7.jpg",
+        "name": "Luxury Watch",
+        "color": "chrome",
+        "description": "A luxurious plated watch.",
+        "price": 850.99,
+        "discounted_price": null,
+        "rating": 5
+      },
+      {
+        "id": 16,
         "image_url": "/assets/watches/watch2.jpg",
         "name": "Elegance Watch",
         "color": "chrome",
